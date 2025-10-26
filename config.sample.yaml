@@ -1,0 +1,13 @@
+# Example configuration for the model analyzer tools.
+expected_sheets:
+  - Summary
+  - Assumptions
+  - Cash Flow
+report_dir: reports
+log_dir: logs
+metadata:
+  project: Sample Project
+batch:
+  input_dir: batch_inputs
+  state_dir: batch_state
+  interval_minutes: 30
