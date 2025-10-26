@@ -1,0 +1,20 @@
+[project]
+name = "airport-platform-report-generator"
+version = "0.1.0"
+description = "Render financial reports with templated markdown and configurable branding."
+authors = [{name = "Airport Platform"}]
+requires-python = ">=3.10"
+dependencies = [
+  "jinja2",
+  "markdown",
+  "pyyaml",
+]
+
+[project.optional-dependencies]
+llm = ["openai>=1.0.0"]
+pdf = ["weasyprint"]
+docx = ["python-docx"]
+pptx = ["python-pptx"]
+
+[project.scripts]
+airport-report = "report_generator.cli:main"
