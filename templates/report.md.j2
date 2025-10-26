@@ -1,0 +1,59 @@
+# {{ branding.company_name }} Financial Report
+
+{% if branding.logo_path %}![Company Logo]({{ branding.logo_path }}){% endif %}
+
+**Generated:** {{ generated_at }}
+
+## Table of Contents
+1. [Executive Summary](#executive-summary)
+2. [Key Metrics](#key-metrics)
+{% if report.has_tables %}3. [Financial Tables](#financial-tables)
+{% endif %}{% if report.has_charts %}4. [Charts](#charts)
+{% endif %}
+
+## Executive Summary {#executive-summary}
+{{ report.summary.narrative }}
+
+## Key Metrics {#key-metrics}
+| Metric | Value | Δ |
+| --- | --- | --- |
+{% for metric in report.summary.metrics -%}
+| {{ metric.name }} | {{ metric.value }} | {{ metric.delta or "-" }} |
+{% endfor %}
+
+{% if report.has_tables %}
+## Financial Tables {#financial-tables}
+{% for table in report.tables %}
+### {{ table.title }} ({{ references.get_table_reference(table.title) }})
+| {% for header in table.headers %}{{ header }} | {% endfor %}
+| {% for _ in table.headers %}--- | {% endfor %}
+{% for row in table.rows -%}
+| {% for cell in row %}{{ cell }} | {% endfor %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+
+{% if report.has_charts %}
+## Charts {#charts}
+{% for chart in report.charts %}
+### {{ chart.title }} ({{ references.get_figure_reference(chart.title) }})
+![{{ chart.title }}]({{ chart.image_path }})
+{% if chart.description %}{{ chart.description }}{% endif %}
+{% endfor %}
+{% endif %}
+
+---
+
+**References**
+
+{% if report.has_tables %}
+**Tables**
+{% for table in report.tables %}- {{ references.get_table_reference(table.title) }}: {{ table.title }}
+{% endfor %}
+{% endif %}
+
+{% if report.has_charts %}
+**Figures**
+{% for chart in report.charts %}- {{ references.get_figure_reference(chart.title) }}: {{ chart.title }}
+{% endfor %}
+{% endif %}

@@ -1,0 +1,27 @@
+{
+  "summary": {
+    "metrics": [
+      {"name": "Revenue", "value": "$1.2M", "delta": "+5% QoQ"},
+      {"name": "Operating Income", "value": "$320K", "delta": "+8% QoQ"},
+      {"name": "Free Cash Flow", "value": "$210K", "delta": "-3% QoQ"}
+    ]
+  },
+  "tables": [
+    {
+      "title": "Profit and Loss",
+      "headers": ["Metric", "Q1", "Q2", "Q3", "Q4"],
+      "rows": [
+        ["Revenue", "$1.0M", "$1.1M", "$1.2M", "$1.3M"],
+        ["Gross Profit", "$600K", "$620K", "$640K", "$660K"],
+        ["Operating Income", "$280K", "$300K", "$320K", "$340K"]
+      ]
+    }
+  ],
+  "charts": [
+    {
+      "title": "Cash Flow Trend",
+      "image_path": "assets/cash_flow.png",
+      "description": "Quarterly cash flow shows resilience despite increased capital expenditure."
+    }
+  ]
+}

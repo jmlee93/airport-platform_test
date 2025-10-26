@@ -1,0 +1,11 @@
+branding:
+  company_name: "Airport Platform"
+  logo_path: "assets/logo.png"
+  primary_color: "#1F77B4"
+  secondary_color: "#FF7F0E"
+template:
+  markdown_template: "templates/report.md.j2"
+  output_format: "md"
+  output_directory: "output"
+  enrich_summary_via_llm: false
+summary_template: "templates/summary_template.txt"
